@@ -20,9 +20,10 @@ export default {
         accent: {
           cyan: "#00f5ff",
           purple: "#bd00ff",
-        }
+        },
       },
       fontFamily: {
+        kanit: ["Kanit", "sans-serif"],
         inter: ['Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
