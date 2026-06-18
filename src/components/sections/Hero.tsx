@@ -6,10 +6,9 @@ import Button from '../ui/Button';
 
 const ROLES = [
   "Software Engineer",
-  "Full Stack Developer",
-  "Mobile App Developer",
-  "AI Product Builder",
-  "Future Tech Founder"
+  "Java Full Stack Developer",
+  "Backend Engineer",
+  "Full Stack Developer"
 ];
 
 const Hero: React.FC = () => {
@@ -78,10 +77,10 @@ const Hero: React.FC = () => {
           className="flex flex-wrap items-center justify-center gap-4"
         >
           <Button href="#showcases" as="a" icon={<ArrowRight size={18} />}>
-            Explore Projects
+            View Engineering Work
           </Button>
           <Button href="#contact" as="a" variant="secondary" icon={<Terminal size={18} />}>
-            Let's Build Something
+            Let's Talk Tech
           </Button>
         </motion.div>
 

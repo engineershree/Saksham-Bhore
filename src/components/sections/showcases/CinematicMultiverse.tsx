@@ -23,7 +23,7 @@ const CinematicMultiverse: React.FC = () => {
           >
             <div className="aspect-square max-w-lg mx-auto rounded-full border border-white/5 bg-gradient-to-br from-[#111] to-[#050505] overflow-hidden shadow-2xl relative group flex items-center justify-center p-8">
               <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(189,0,255,0.1)_0%,transparent_70%)]" />
-              <img src={project.image} alt="Multiverse Concept" className="w-full h-full object-cover rounded-full opacity-60 group-hover:opacity-100 transition-all duration-700 animate-[spin_60s_linear_infinite]" />
+              <img src={project.image} alt="Multiverse Concept" loading="lazy" decoding="async" className="w-full h-full object-cover rounded-full opacity-60 group-hover:opacity-100 transition-all duration-700 animate-[spin_60s_linear_infinite]" />
               
               <div className="absolute inset-0 flex items-center justify-center">
                 <button className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all shadow-[0_0_50px_rgba(189,0,255,0.3)]">

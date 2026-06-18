@@ -55,6 +55,7 @@ const Navbar: React.FC = () => {
               href={PROFILE.resumePath}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Download Resume"
               className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/10 bg-white/5 text-sm uppercase tracking-widest hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-sm"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -66,6 +67,7 @@ const Navbar: React.FC = () => {
 
             <button 
               className="md:hidden text-gray-300 hover:text-white p-2"
+              aria-label="Open Mobile Menu"
               onClick={() => setMobileMenuOpen(true)}
             >
               <Menu size={24} />
@@ -84,6 +86,7 @@ const Navbar: React.FC = () => {
         >
           <button 
             className="absolute top-6 right-6 text-gray-400 hover:text-white p-2"
+            aria-label="Close Mobile Menu"
             onClick={() => setMobileMenuOpen(false)}
           >
             <X size={32} />

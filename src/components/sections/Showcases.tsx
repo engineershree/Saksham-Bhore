@@ -46,7 +46,7 @@ const Showcases: React.FC = () => {
               >
                 <TiltCard className="bg-[#0f0f0f] border border-white/5 rounded-3xl overflow-hidden group hover:border-white/10 transition-colors flex flex-col h-full">
                   <div className="aspect-video overflow-hidden relative">
-                    <img src={project.image} alt={project.name} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
+                    <img src={project.image} alt={project.name} loading="lazy" decoding="async" className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] to-transparent opacity-80" />
                     <div className="absolute bottom-4 left-4">
                       <span className="px-3 py-1 bg-black/60 backdrop-blur-md rounded-full text-xs font-mono text-white border border-white/10">

@@ -68,7 +68,7 @@ const CivicAI: React.FC = () => {
             className="relative"
           >
             <div className="aspect-[4/3] rounded-3xl border border-white/10 bg-[#0f0f0f] overflow-hidden shadow-2xl relative group">
-              <img src={project.image} alt="Civic AI Dashboard" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-105 group-hover:scale-100" />
+              <img src={project.image} alt="Civic AI Dashboard" loading="lazy" decoding="async" className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 scale-105 group-hover:scale-100" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-80" />
             </div>
           </motion.div>

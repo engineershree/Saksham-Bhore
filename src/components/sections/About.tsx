@@ -25,6 +25,8 @@ const About: React.FC = () => {
               <img 
                 src={PROFILE.avatar} 
                 alt={PROFILE.name} 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100"
               />
               <div className="absolute bottom-8 left-8 right-8 z-20">
