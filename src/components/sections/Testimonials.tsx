@@ -30,7 +30,7 @@ const Testimonials: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden" style={{ background: 'var(--bg-secondary)' }}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -42,7 +42,7 @@ const Testimonials: React.FC = () => {
           <p className="text-gray-400 text-sm font-semibold uppercase tracking-[0.3em] mb-4">
             Endorsements
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold text-white">
+          <h2 className="text-3xl md:text-5xl font-bold" style={{ color: 'var(--text-primary)' }}>
             What People Say
           </h2>
         </motion.div>
@@ -55,10 +55,11 @@ const Testimonials: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white/[0.02] border border-white/5 rounded-3xl p-8 relative hover:bg-white/[0.04] transition-colors"
+              className="rounded-3xl p-8 relative transition-all hover:-translate-y-1"
+              style={{ background: 'var(--glass-bg)', border: '1px solid var(--border-color)' }}
             >
               <div className="text-6xl text-white/10 font-serif absolute top-4 left-6">"</div>
-              <p className="text-gray-300 text-sm leading-relaxed mb-8 relative z-10">
+              <p className="text-sm leading-relaxed mb-8 relative z-10" style={{ color: 'var(--text-muted)' }}>
                 {t.text}
               </p>
               <div className="flex items-center gap-4">
@@ -66,8 +67,8 @@ const Testimonials: React.FC = () => {
                   {t.author.charAt(0)}
                 </div>
                 <div>
-                  <h4 className="text-white font-medium text-sm">{t.author}</h4>
-                  <p className="text-xs text-gray-500">{t.role}{t.company ? `, ${t.company}` : ''}</p>
+                  <h4 className="font-medium text-sm" style={{ color: 'var(--text-primary)' }}>{t.author}</h4>
+                  <p className="text-xs" style={{ color: 'var(--text-subtle)' }}>{t.role}{t.company ? `, ${t.company}` : ''}</p>
                 </div>
               </div>
             </motion.div>

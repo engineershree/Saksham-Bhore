@@ -1,14 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Globe, Coins, Play } from 'lucide-react';
+import { Sparkles, Globe, Coins, Play, BookOpen, ArrowUpRight } from 'lucide-react';
 import { PROJECTS } from '../../../data/portfolio';
 
-const CinematicMultiverse: React.FC = () => {
+type AnyProject = (typeof PROJECTS)[number];
+
+interface CinematicMultiverseProps {
+  onCaseStudy?: (project: AnyProject) => void;
+}
+
+const CinematicMultiverse: React.FC<CinematicMultiverseProps> = ({ onCaseStudy }) => {
   const project = PROJECTS.find(p => p.id === 'mcm');
   if (!project) return null;
 
   return (
-    <section className="py-32 relative bg-[#050505] overflow-hidden">
+    <section className="py-32 relative overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent-purple/10 rounded-full blur-[150px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -43,10 +49,10 @@ const CinematicMultiverse: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent-purple/30 bg-accent-purple/10 text-xs text-accent-purple font-mono mb-6">
               <Sparkles size={14} /> Startup Innovation Concept
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
               My Cinematic Multiverse
             </h2>
-            <p className="text-xl text-gray-400 mb-8 leading-relaxed">
+            <p className="text-xl mb-8 leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               {project.description}
             </p>
             
@@ -70,6 +76,17 @@ const CinematicMultiverse: React.FC = () => {
                 </div>
               </li>
             </ul>
+
+            {/* Case Study button */}
+            <button
+              onClick={() => onCaseStudy?.(project as unknown as AnyProject)}
+              className="flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm transition-all hover:-translate-y-0.5"
+              style={{ background: 'rgba(189,0,255,0.15)', border: '1px solid rgba(189,0,255,0.4)', color: '#bd00ff' }}
+            >
+              <BookOpen size={16} />
+              View Case Study
+              <ArrowUpRight size={14} />
+            </button>
           </motion.div>
         </div>
       </div>

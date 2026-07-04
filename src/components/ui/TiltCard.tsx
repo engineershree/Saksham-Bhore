@@ -4,9 +4,10 @@ import { motion, useSpring, useTransform } from 'framer-motion';
 interface TiltCardProps {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-const TiltCard: React.FC<TiltCardProps> = ({ children, className = '' }) => {
+const TiltCard: React.FC<TiltCardProps> = ({ children, className = '', style }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -44,10 +45,11 @@ const TiltCard: React.FC<TiltCardProps> = ({ children, className = '' }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       style={{
+        ...style,
         rotateX,
         rotateY,
         transformStyle: "preserve-3d",
-      }}
+      } as any}
       className={`relative perspective-1000 ${className}`}
     >
       {/* Glare effect */}
