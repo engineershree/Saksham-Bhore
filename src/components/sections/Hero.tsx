@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Download, Terminal, MapPin, Mail } from 'lucide-react';
+import { ArrowRight, Terminal, MapPin, Mail, GitCommit, Briefcase } from 'lucide-react';
 import { PROFILE } from '../../data/portfolio';
 import Button from '../ui/Button';
 
 const ROLES = [
+  "Full Stack Developer",
   "Software Engineer",
-  "Java Full Stack Developer",
-  "Backend Engineer",
-  "Full Stack Developer"
+  "AI Engineering Enthusiast",
+  "Backend & System Architect"
 ];
 
 const Hero: React.FC = () => {
@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
               style={{ borderColor: 'var(--border-color)', background: 'var(--glass-bg)' }}
             >
               <Terminal size={16} />
-              <div className="flex overflow-hidden h-5 items-center relative w-52">
+              <div className="flex overflow-hidden h-5 items-center relative w-56">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={roleIndex}
@@ -61,17 +61,17 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-[clamp(2.5rem,5vw,4.8rem)] font-extrabold leading-[1.05] tracking-tighter mb-6"
+              className="text-[clamp(2.5rem,5vw,4.6rem)] font-extrabold leading-[1.08] tracking-tighter mb-6"
             >
-              <span className="block" style={{ color: 'var(--text-primary)' }}>Building Digital Products</span>
-              <span className="block hero-heading">That Create Real-World Impact</span>
+              <span className="block" style={{ color: 'var(--text-primary)' }}>Engineering Scalable Systems</span>
+              <span className="block hero-heading">&amp; Intelligent Digital Products</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="max-w-2xl text-lg md:text-xl mb-4 leading-relaxed"
+              className="max-w-2xl text-base md:text-lg mb-6 leading-relaxed"
               style={{ color: 'var(--text-muted)' }}
             >
               {PROFILE.summary}
@@ -82,13 +82,13 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
-              className="flex flex-wrap gap-4 mb-10 justify-center lg:justify-start"
+              className="flex flex-wrap gap-4 mb-8 justify-center lg:justify-start"
             >
-              <span className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-subtle)' }}>
+              <span className="flex items-center gap-2 text-xs sm:text-sm font-mono" style={{ color: 'var(--text-subtle)' }}>
                 <MapPin size={14} className="text-accent-cyan" />
                 {PROFILE.location}
               </span>
-              <a href={`mailto:${PROFILE.email}`} className="flex items-center gap-2 text-sm hover:text-accent-cyan transition-colors" style={{ color: 'var(--text-subtle)' }}>
+              <a href={`mailto:${PROFILE.email}`} className="flex items-center gap-2 text-xs sm:text-sm font-mono hover:text-accent-cyan transition-colors" style={{ color: 'var(--text-subtle)' }}>
                 <Mail size={14} className="text-accent-cyan" />
                 {PROFILE.email}
               </a>
@@ -98,13 +98,13 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5"
             >
-              <Button href="#showcases" as="a" icon={<ArrowRight size={18} />}>
-                View Engineering Work
+              <Button href="#projects" as="a" icon={<GitCommit size={18} />}>
+                Explore Projects Timeline
               </Button>
-              <Button href="#contact" as="a" variant="secondary" icon={<Terminal size={18} />}>
-                Let's Talk Tech
+              <Button href="#experience" as="a" variant="secondary" icon={<Briefcase size={18} />}>
+                Career Experience
               </Button>
             </motion.div>
           </div>
@@ -156,25 +156,24 @@ const Hero: React.FC = () => {
         {/* Live Metrics — below both columns */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 w-full"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full"
         >
           {[
-            { value: '4+', label: 'Production Modules', color: 'text-accent-cyan' },
-            { value: '8+', label: 'Major Projects', color: 'text-accent-purple' },
-            { value: '10+', label: 'APIs Developed', color: 'text-white' },
-            { value: '5+', label: 'Platforms & Tech', color: 'text-white' },
+            { value: '30–40%', label: 'Query Latency Reduction', color: 'text-accent-cyan' },
+            { value: '10+', label: 'Production API Integrations', color: 'text-accent-purple' },
+            { value: '6+', label: 'Full-Stack & AI Systems', color: 'text-accent-cyan' },
+            { value: '100%', label: 'RBAC / JWT Security Standards', color: 'text-white' },
           ].map((stat) => (
             <div
               key={stat.label}
-              className="rounded-2xl p-6 backdrop-blur-md flex flex-col items-center transition-all hover:-translate-y-1"
+              className="rounded-2xl p-5 backdrop-blur-md flex flex-col items-center text-center transition-all hover:-translate-y-1"
               style={{ background: 'var(--glass-bg)', border: '1px solid var(--border-color)' }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = 'var(--glass-bg-hover)'; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = 'var(--glass-bg)'; }}
             >
-              <span className={`text-3xl md:text-4xl font-bold mb-2 ${stat.color}`}>{stat.value}</span>
-              <span className="text-xs uppercase tracking-widest text-center font-medium" style={{ color: 'var(--text-subtle)' }}>{stat.label}</span>
+              <span className={`text-2xl md:text-3xl font-extrabold mb-1 ${stat.color}`}>{stat.value}</span>
+              <span className="text-[11px] uppercase tracking-wider font-mono font-medium" style={{ color: 'var(--text-subtle)' }}>{stat.label}</span>
             </div>
           ))}
         </motion.div>

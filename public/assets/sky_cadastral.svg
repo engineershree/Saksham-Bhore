@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="skyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#051329"/>
+      <stop offset="50%" stop-color="#0a1d3b"/>
+      <stop offset="100%" stop-color="#030b18"/>
+    </linearGradient>
+    <linearGradient id="panelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#122544" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0a162b" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="cyanLine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f5ff"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <linearGradient id="plot1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="plot2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.15"/>
+    </linearGradient>
+    <linearGradient id="plot3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bd00ff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.15"/>
+    </linearGradient>
+    <filter id="glowEffect">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#skyBg)"/>
+
+  <!-- Cadastral Grid Coordinates -->
+  <g opacity="0.15" stroke="#38bdf8" stroke-width="1">
+    <path d="M 100 0 L 100 675 M 250 0 L 250 675 M 400 0 L 400 675 M 550 0 L 550 675 M 700 0 L 700 675 M 850 0 L 850 675 M 1000 0 L 1000 675 M 1150 0 L 1150 675" stroke-dasharray="3,6"/>
+    <path d="M 0 100 L 1200 100 M 0 220 L 1200 220 M 0 340 L 1200 340 M 0 460 L 1200 460 M 0 580 L 1200 580" stroke-dasharray="3,6"/>
+  </g>
+
+  <!-- Top Toolbar -->
+  <rect x="50" y="30" width="1100" height="60" rx="14" fill="#0d1f3a" stroke="#1e3a66" stroke-width="1.5"/>
+  <circle cx="85" cy="60" r="7" fill="#ef4444"/>
+  <circle cx="110" cy="60" r="7" fill="#f59e0b"/>
+  <circle cx="135" cy="60" r="7" fill="#10b981"/>
+  
+  <text x="170" y="65" font-family="'Inter', sans-serif" font-size="15" font-weight="700" fill="#ffffff">Sky Cadastral Land Services</text>
+  <text x="380" y="65" font-family="'JetBrains Mono', monospace" font-size="12" fill="#38bdf8">| Sector 4B Survey Map · 18.5204° N, 73.8567° E</text>
+
+  <!-- Status badges -->
+  <rect x="880" y="45" width="120" height="30" rx="15" fill="#0284c7" fill-opacity="0.2" stroke="#38bdf8"/>
+  <text x="898" y="65" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#38bdf8">2D / 3D Active</text>
+
+  <rect x="1015" y="45" width="115" height="30" rx="15" fill="#10b981" fill-opacity="0.2" stroke="#10b981"/>
+  <text x="1030" y="65" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#10b981">GeoJSON Valid</text>
+
+  <!-- Left Sidebar: Extraction Pipeline -->
+  <rect x="50" y="110" width="340" height="515" rx="16" fill="url(#panelGrad)" stroke="#1e3a66" stroke-width="1.5"/>
+  <text x="80" y="150" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#ffffff">Geospatial Pipeline</text>
+  <text x="80" y="172" font-family="'Inter', sans-serif" font-size="12" fill="#94a3b8">PyMuPDF + Shapely Vector Extraction</text>
+
+  <!-- Pipeline Steps -->
+  <g transform="translate(80, 195)">
+    <!-- Step 1 -->
+    <rect x="0" y="0" width="280" height="65" rx="10" fill="#091830" stroke="#10b981" stroke-width="1.5"/>
+    <circle cx="25" cy="32" r="12" fill="#10b981" opacity="0.2"/>
+    <text x="20" y="37" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" fill="#10b981">✓</text>
+    <text x="50" y="27" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">1. PDF Vector Parsing</text>
+    <text x="50" y="46" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8">Lines &amp; arc primitives extracted</text>
+
+    <!-- Step 2 -->
+    <rect x="0" y="80" width="280" height="65" rx="10" fill="#091830" stroke="#10b981" stroke-width="1.5"/>
+    <circle cx="25" cy="112" r="12" fill="#10b981" opacity="0.2"/>
+    <text x="20" y="117" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" fill="#10b981">✓</text>
+    <text x="50" y="107" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#ffffff">2. Polygon Reconstruction</text>
+    <text x="50" y="126" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8">Shapely topology validation</text>
+
+    <!-- Step 3 -->
+    <rect x="0" y="160" width="280" height="65" rx="10" fill="#091830" stroke="#00f5ff" stroke-width="1.5"/>
+    <circle cx="25" cy="192" r="12" fill="#00f5ff" opacity="0.2"/>
+    <text x="20" y="197" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" fill="#00f5ff">⚡</text>
+    <text x="50" y="187" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#00f5ff">3. Interactive 2D/3D</text>
+    <text x="50" y="206" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8">Three.js projection &amp; rendering</text>
+
+    <!-- Step 4 (Ongoing) -->
+    <rect x="0" y="240" width="280" height="65" rx="10" fill="#091830" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <circle cx="25" cy="272" r="12" fill="#f59e0b" opacity="0.2"/>
+    <text x="20" y="277" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" fill="#f59e0b">⏳</text>
+    <text x="50" y="267" font-family="'Inter', sans-serif" font-size="13" font-weight="700" fill="#f59e0b">4. 3D Elevation Mesh</text>
+    <text x="50" y="286" font-family="'Inter', sans-serif" font-size="11" fill="#94a3b8">Active Development · Elevation</text>
+  </g>
+
+  <!-- Plot Summary Box -->
+  <rect x="80" y="525" width="280" height="80" rx="10" fill="#071224" stroke="#1e3a66"/>
+  <text x="100" y="555" font-family="'Inter', sans-serif" font-size="12" fill="#94a3b8">Total Extracted Plots</text>
+  <text x="100" y="582" font-family="'JetBrains Mono', monospace" font-size="20" font-weight="700" fill="#00f5ff">148 Parcels</text>
+  <text x="250" y="555" font-family="'Inter', sans-serif" font-size="12" fill="#94a3b8">Discrepancy</text>
+  <text x="250" y="582" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="700" fill="#10b981">0.00%</text>
+
+  <!-- Right Visualizer: 2D & 3D Interactive Cadastral Canvas -->
+  <rect x="415" y="110" width="735" height="515" rx="16" fill="url(#panelGrad)" stroke="#1e3a66" stroke-width="1.5"/>
+
+  <!-- Compass Rose -->
+  <g transform="translate(1100, 155)">
+    <circle cx="0" cy="0" r="22" fill="#091830" stroke="#38bdf8"/>
+    <line x1="0" y1="-18" x2="0" y2="18" stroke="#ef4444" stroke-width="2"/>
+    <line x1="-18" y1="0" x2="18" y2="0" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="-4" y="-7" font-family="'Inter', sans-serif" font-size="11" font-weight="900" fill="#ef4444">N</text>
+  </g>
+
+  <!-- Cadastral Plots 2D/3D Polygon Mesh Map -->
+  <g transform="translate(450, 160)">
+    <!-- Road network / layout corridor -->
+    <path d="M 0 220 L 660 220 L 660 260 L 0 260 Z" fill="#0b172a" stroke="#1e3a66" stroke-width="1.5"/>
+    <line x1="0" y1="240" x2="660" y2="240" stroke="#f59e0b" stroke-width="1" stroke-dasharray="10,10"/>
+
+    <!-- Plot A-101 (Cyan) -->
+    <polygon points="20,40 180,30 200,200 30,200" fill="url(#plot1)" stroke="#00f5ff" stroke-width="2" filter="url(#glowEffect)"/>
+    <text x="80" y="120" font-family="'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#ffffff">Plot A-101</text>
+    <text x="80" y="140" font-family="'Inter', sans-serif" font-size="11" fill="#38bdf8">Area: 2,450 sq.ft</text>
+
+    <!-- Plot A-102 (Green) -->
+    <polygon points="220,30 380,20 400,200 240,200" fill="url(#plot2)" stroke="#10b981" stroke-width="2"/>
+    <text x="280" y="120" font-family="'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#ffffff">Plot A-102</text>
+    <text x="280" y="140" font-family="'Inter', sans-serif" font-size="11" fill="#10b981">Area: 2,520 sq.ft</text>
+
+    <!-- Plot A-103 (Purple) -->
+    <polygon points="420,20 620,10 640,200 440,200" fill="url(#plot3)" stroke="#bd00ff" stroke-width="2"/>
+    <text x="500" y="120" font-family="'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#ffffff">Plot A-103</text>
+    <text x="500" y="140" font-family="'Inter', sans-serif" font-size="11" fill="#bd00ff">Area: 3,100 sq.ft</text>
+
+    <!-- Plot B-201 -->
+    <polygon points="30,280 200,280 180,440 20,440" fill="url(#plot2)" stroke="#10b981" stroke-width="2"/>
+    <text x="75" y="360" font-family="'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#ffffff">Plot B-201</text>
+    <text x="75" y="380" font-family="'Inter', sans-serif" font-size="11" fill="#10b981">Commercial Hub</text>
+
+    <!-- Plot B-202 -->
+    <polygon points="240,280 400,280 380,440 220,440" fill="url(#plot1)" stroke="#00f5ff" stroke-width="2"/>
+    <text x="275" y="360" font-family="'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#ffffff">Plot B-202</text>
+    <text x="275" y="380" font-family="'Inter', sans-serif" font-size="11" fill="#38bdf8">Residential</text>
+
+    <!-- Plot B-203 -->
+    <polygon points="440,280 640,280 620,440 420,440" fill="url(#plot3)" stroke="#bd00ff" stroke-width="2"/>
+    <text x="495" y="360" font-family="'JetBrains Mono', monospace" font-size="15" font-weight="700" fill="#ffffff">Plot B-203</text>
+    <text x="495" y="380" font-family="'Inter', sans-serif" font-size="11" fill="#bd00ff">Open Greens</text>
+  </g>
+</svg>

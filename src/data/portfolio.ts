@@ -1,369 +1,736 @@
+export interface ImpactMetric {
+  metric: string;
+  label: string;
+}
+
+export interface TechnologyGroup {
+  frontend?: string[];
+  backend?: string[];
+  ai_nlp?: string[];
+  geospatial?: string[];
+  database?: string[];
+  tools?: string[];
+}
+
+export interface CaseStudy {
+  overview: string;
+  problem: string;
+  solution: string;
+  architecture: string[];
+  keyFeatures: string[];
+  techStackDetailed?: TechnologyGroup;
+  challenges: string;
+  implementationDetails: string;
+  impact: ImpactMetric[];
+  github?: string;
+  liveDemo?: string;
+  learnings?: string;
+}
+
+export interface Project {
+  id: string;
+  name: string;
+  shortName?: string;
+  category: string;
+  status: "Completed" | "Ongoing" | "In Development" | "Experimental";
+  year: string;
+  developmentDate: string;
+  stack: readonly string[];
+  description: string;
+  highlights: string[];
+  image: string;
+  github?: string;
+  liveDemo?: string;
+  isFlagship?: boolean;
+  evolvingPlatform?: boolean;
+  completedFeatures?: string[];
+  upcomingFeatures?: string[];
+  caseStudy: CaseStudy;
+}
+
+export interface ExperienceItem {
+  id: string;
+  company: string;
+  role: string;
+  duration: string;
+  period: string;
+  year: string;
+  location: string;
+  type: string;
+  summary: string;
+  responsibilities: string[];
+  achievements: string[];
+  technologies: string[];
+  metrics: ImpactMetric[];
+  keyContributions: string[];
+  points: string[];
+}
+
 export const PROFILE = {
   name: "Saksham Bhore",
   firstName: "Saksham",
-  role: "Software Engineer | Java Full Stack Developer",
-  location: "Pune, Maharashtra",
+  role: "Full Stack Developer | Software Engineer | AI Engineering Enthusiast",
+  titleRoles: [
+    "Full Stack Developer",
+    "Software Engineer",
+    "AI Engineering Enthusiast",
+    "Backend & System Architect"
+  ],
+  location: "Pune, Maharashtra, India",
   email: "sakshambhore8902@gmail.com",
   linkedin: "https://www.linkedin.com/in/sakshambhore/",
   github: "https://github.com/engineershree",
   resumePath: "/Saksham_Bhore_I2 (3).pdf",
   avatar: "/assets/saksham-profile.jpeg",
   summary:
-    "I architect and scale robust backend systems and modern full-stack applications. With deep expertise in the Java ecosystem (Spring Boot) and React, I focus on performance optimization, secure API design, and building maintainable, production-ready software that solves complex business problems.",
+    "Full Stack Developer and Software Engineer with practical engineering experience building resilient backend architectures, high-performance web and mobile platforms, and AI-powered systems. Experienced in Java, Spring Boot, Node.js, Python, FastAPI, and React, focusing on clean API design, JWT/RBAC security, SQL optimization, and scalable digital products.",
 };
 
 export const TECH_STACK = [
   {
     category: "Languages",
-    items: ["Java", "TypeScript", "JavaScript", "SQL", "Python"],
+    items: ["Java", "Python", "JavaScript", "TypeScript", "SQL"],
   },
   {
-    category: "Backend & Architecture",
-    items: ["Spring Boot", "Node.js", "Express.js", "RESTful APIs", "Microservices", "JWT Auth", "RBAC"],
+    category: "Backend & Systems",
+    items: ["Spring Boot", "Node.js", "Express.js", "FastAPI", "Flask", "REST APIs", "Microservices", "JWT", "RBAC"],
   },
   {
-    category: "Frontend",
-    items: ["React.js", "Next.js", "HTML5", "CSS3", "TailwindCSS"],
+    category: "Frontend & Mobile",
+    items: ["React.js", "React Native", "Next.js", "TailwindCSS", "Redux", "HTML5/CSS3"],
   },
   {
-    category: "Database & Cloud",
-    items: ["PostgreSQL", "MySQL", "Query Optimization", "Database Design", "AWS (Basic)"],
+    category: "Databases & Storage",
+    items: ["PostgreSQL", "MySQL", "SQLite", "Query Optimization", "Schema Design", "Database Indexing"],
   },
   {
-    category: "Mobile",
-    items: ["React Native", "Android Development"],
+    category: "AI, NLP & Geospatial",
+    items: ["NLP", "Semantic Search", "Sentence Transformers", "OpenAI API", "PyMuPDF", "Shapely", "GeoJSON", "Three.js"],
   },
   {
-    category: "Tools & DevOps",
-    items: ["Git", "GitHub Actions", "Docker", "Postman", "Linux"],
+    category: "DevOps & Tools",
+    items: ["Git", "GitHub", "Postman", "Docker", "Linux", "CI/CD"],
   },
 ] as const;
 
-export const EXPERIENCE = [
+export const EXPERIENCE: ExperienceItem[] = [
   {
+    id: "rsl-solutions",
+    company: "RSL Solution Pvt. Ltd.",
     role: "Software Developer",
-    company: "RSL Solutions Pvt Ltd",
-    period: "Dec 2025 – Present",
+    duration: "August 2025 – July 2026",
+    period: "Aug 2025 – Jul 2026",
+    year: "2025 – 2026",
+    location: "Pune, India",
+    type: "Full-Time",
+    summary:
+      "Engineered production-grade CRM and Fitness application modules, designed secure REST APIs, implemented strict JWT/RBAC authentication, and investigated complex multi-service API integrations.",
+    responsibilities: [
+      "Worked on production CRM and Fitness application modules.",
+      "Developed and integrated REST APIs and database operations.",
+      "Worked on JWT/RBAC authentication and backend workflows.",
+      "Investigated and resolved failures across 10+ third-party and internal API integrations.",
+      "Improved application performance and React component delivery efficiency.",
+      "Collaborated in Agile sprints, code reviews, and pull-request workflows.",
+    ],
+    achievements: [
+      "Resolved mission-critical integration bugs across 10+ internal and external partner APIs.",
+      "Standardized JWT authentication and Role-Based Access Control (RBAC) across modular CRM microservices.",
+      "Enhanced React component delivery velocity and decreased UI render lag across heavy data tables.",
+      "Maintained zero security regressions across client CRM authentication workflows.",
+    ],
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "React.js",
+      "Node.js",
+      "PostgreSQL",
+      "REST APIs",
+      "JWT",
+      "RBAC",
+      "Postman",
+      "Git",
+    ],
+    metrics: [
+      { metric: "10+", label: "API Integrations Resolved" },
+      { metric: "100%", label: "Secure RBAC Auth Enforcement" },
+      { metric: "0", label: "Security Regressions in Prod" },
+      { metric: "25%", label: "Faster Frontend Feature Delivery" },
+    ],
+    keyContributions: [
+      "Auth & Access Control: Built unified JWT token verification middleware and multi-tier role permissions for administrative users.",
+      "Integration Resilience: Diagnosed API payload serialization mismatches, rate-limit stalls, and network edge-cases across external webhooks.",
+      "Agile Collaboration: Led bi-weekly code reviews, maintained strict pull-request hygiene, and participated in sprint capacity planning.",
+    ],
     points: [
-      "Architected and deployed production-grade CRM and Fitness modules, reducing complex business workflow completion time by 40%.",
-      "Engineered secure, scalable RESTful APIs utilizing Java Spring Boot and Node.js with strict RBAC and JWT Authentication.",
-      "Optimized PostgreSQL database schemas and queries, decreasing API response latency by up to 35% under high concurrent load.",
-      "Spearheaded the migration to a reusable React architecture, cutting down frontend feature delivery time by 25%.",
-      "Collaborated in cross-functional Agile teams, implementing rigorous code reviews and CI/CD pipelines to ensure zero-downtime deployments.",
+      "Worked on production CRM and Fitness application modules.",
+      "Developed and integrated REST APIs and database operations.",
+      "Worked on JWT/RBAC authentication and backend workflows.",
+      "Investigated and resolved failures across 10+ third-party and internal API integrations.",
+      "Improved application performance and React component delivery efficiency.",
+      "Collaborated in Agile sprints, code reviews, and pull-request workflows.",
     ],
   },
   {
-    role: "Software Engineer Intern",
-    company: "DX RAD Pvt Ltd",
+    id: "dxrad",
+    company: "DXRAD Pvt. Ltd.",
+    role: "Frontend Developer & Scrum Master",
+    duration: "February 2024 – March 2025",
     period: "Feb 2024 – Mar 2025",
+    year: "2024 – 2025",
+    location: "Pune, India",
+    type: "Full-Time",
+    summary:
+      "Led frontend development with React.js and Redux, contributed to Node.js and MySQL backend services, executed query optimizations reducing response times by 30–40%, and steered sprint execution as Scrum Master.",
+    responsibilities: [
+      "Developed React.js and Redux-based application features.",
+      "Integrated frontend components with backend REST APIs.",
+      "Contributed to backend integration using Node.js and MySQL.",
+      "Optimized SQL queries through indexing, joins, and pagination.",
+      "Reduced backend response time by approximately 30–40%.",
+      "Coordinated team delivery, sprint execution, and collaboration as Scrum Master.",
+    ],
+    achievements: [
+      "Reduced backend API response latency by approximately 30–40% via targeted SQL indexing, composite joins, and keyset pagination.",
+      "Delivered robust state management pipelines utilizing Redux Toolkit, eliminating prop drilling and rendering bottlenecks.",
+      "Served as Scrum Master: facilitated daily stand-ups, backlog grooming, and sprint retrospectives, maintaining high sprint velocity.",
+      "Bridged frontend and backend teams by establishing clear OpenAPI contracts and Postman collections.",
+    ],
+    technologies: [
+      "React.js",
+      "Redux",
+      "Node.js",
+      "MySQL",
+      "REST APIs",
+      "SQL Query Optimization",
+      "Scrum / Agile",
+      "Git",
+      "Postman",
+    ],
+    metrics: [
+      { metric: "30–40%", label: "Backend Response Time Reduction" },
+      { metric: "100%", label: "On-Time Sprint Deliveries" },
+      { metric: "<200ms", label: "Optimized SQL Query Latency" },
+      { metric: "Agile", label: "Cross-Functional Scrum Leadership" },
+    ],
+    keyContributions: [
+      "SQL Optimization: Analyzed slow query logs, eliminated redundant table scans, and built composite indexes for high-frequency queries.",
+      "Frontend Architecture: Created reusable React component patterns with predictable Redux state flows and error boundaries.",
+      "Scrum Leadership: Removed cross-department blockers, maintained Jira sprint boards, and cultivated clear engineering communication.",
+    ],
     points: [
-      "Designed and developed scalable backend microservices and seamless frontend interfaces using Java, Node.js, and React.",
-      "Identified and resolved critical database bottlenecks by optimizing complex SQL queries, vastly improving application throughput.",
-      "Integrated secure third-party payment and messaging APIs, expanding the core platform's functional capabilities.",
-      "Wrote comprehensive unit and integration tests, increasing overall code coverage and reducing production bugs by 20%.",
-      "Actively contributed to system architecture discussions and Agile sprint planning sessions.",
+      "Developed React.js and Redux-based application features.",
+      "Integrated frontend components with backend REST APIs.",
+      "Contributed to backend integration using Node.js and MySQL.",
+      "Optimized SQL queries through indexing, joins, and pagination.",
+      "Reduced backend response time by approximately 30–40%.",
+      "Coordinated team delivery, sprint execution, and collaboration as Scrum Master.",
     ],
   },
-] as const;
+];
 
-export const PROJECTS = [
+export const PROJECTS: Project[] = [
   {
-    id: "civicai",
-    category: "Flagship Product",
-    name: "CivicAI",
-    stack: ["Java Spring Boot", "React", "PostgreSQL", "Microservices"],
-    description: "An enterprise-grade civic engagement platform designed to handle high-throughput public reporting and automated department routing.",
+    id: "ai-resume-screening",
+    name: "AI Resume Screening & Intelligent Candidate Ranking System",
+    shortName: "AI Resume Screening",
+    category: "AI / Full Stack / NLP",
+    status: "Completed",
+    year: "2026",
+    developmentDate: "2026",
+    stack: ["React.js", "Python", "FastAPI", "PostgreSQL", "NLP", "Sentence Transformers", "OpenAI API"],
+    description:
+      "An AI-powered recruitment platform that automates resume parsing, candidate information extraction, job-description analysis, semantic matching, candidate scoring, and intelligent ranking.",
     highlights: [
-      "Architected scalable backend services processing thousands of concurrent requests",
-      "Implemented intelligent routing reducing ticket resolution time by 30%",
-      "Designed secure Role-Based Access Control (RBAC) for administrative dashboards",
-      "Optimized relational database schemas for real-time status aggregation"
+      "Multi-format document parsing across PDF, DOCX, and TXT files",
+      "Automated candidate contact and skill entity extraction",
+      "Deep semantic similarity matching using Sentence Transformers",
+      "Explainable candidate scoring breakdown and ranking rationale",
+      "Interactive recruiter dashboard with real-time candidate filtering",
     ],
-    vision: "Transform public grievance management into a transparent, efficient, and technology-driven ecosystem.",
-    image: "/assets/civic_ai_dashboard.png",
+    image: "/assets/ai_resume_screening.svg",
+    github: "https://github.com/engineershree/ai-screening-and-ranking-system",
+    isFlagship: true,
     caseStudy: {
-      problem: "Municipal corporations struggled with fragmented complaint management — citizens had no single point of contact, and complaints were lost across departments with zero accountability or transparency.",
-      solution: "Built CivicAI, an enterprise-grade civic platform with intelligent auto-routing, a multi-department RBAC system, and real-time status tracking. Citizens can submit, track, and escalate grievances digitally.",
+      overview:
+        "An AI-powered recruitment intelligence platform built to modernize candidate screening. The system ingests resumes in multiple formats, extracts key profile entities, computes high-dimensional semantic embeddings, and ranks candidates against job descriptions with explainable scoring insights.",
+      problem:
+        "Traditional keyword-matching applicant tracking systems (ATS) frequently reject qualified candidates who use differing terminology, while manual human screening of hundreds of resumes per job opening is slow, biased, and inconsistent.",
+      solution:
+        "Architected an end-to-end recruitment platform using Sentence Transformers and FastAPI that parses PDF, DOCX, and TXT documents, computes dense vector representations for both resumes and job descriptions, evaluates semantic cosine similarity, and presents an explainable ranking dashboard to recruiters.",
       architecture: [
-        "Spring Boot microservices with API Gateway pattern",
-        "PostgreSQL with optimized indexing for concurrent read/write",
-        "JWT + RBAC for department-level access control",
-        "React frontend with real-time WebSocket notifications",
-        "RESTful APIs with Swagger documentation"
+        "Document Ingestion: Multi-parser ingestion pipeline extracting clean text from PDF, DOCX, and TXT formats.",
+        "Entity Extraction: NLP processing isolating candidate skills, experience duration, education, and domain competencies.",
+        "Semantic Vector Engine: Sentence Transformers model generating 768-dimensional embeddings with OpenAI API fallback.",
+        "Backend API: Asynchronous FastAPI service orchestrating parsing, vector matching, and PostgreSQL persistent caching.",
+        "Recruiter Interface: Responsive React.js dashboard providing instant similarity thresholds, criteria weighting, and candidate comparison.",
       ],
+      keyFeatures: [
+        "PDF, DOCX, and TXT resume processing",
+        "Candidate contact and technical information extraction",
+        "Job description semantic parsing and criteria weighting",
+        "Semantic similarity and candidate matching",
+        "Candidate ranking with explainable insights and score breakdown",
+        "Interactive recruiter dashboard with real-time sorting and filtering",
+      ],
+      techStackDetailed: {
+        frontend: ["React.js", "TailwindCSS", "Lucide React", "Vite"],
+        backend: ["Python", "FastAPI", "Uvicorn", "Pydantic"],
+        ai_nlp: ["Sentence Transformers", "OpenAI API", "NLP Tokenization", "Cosine Similarity"],
+        database: ["PostgreSQL", "Relational Candidate Store"],
+      },
+      challenges:
+        "Handling diverse and irregular resume layouts (multi-column tables, visual blocks, graphical headers) without truncating or jumbling text. Solved by developing an intelligent whitespace-normalization and structural block extractor prior to NLP embedding.",
+      implementationDetails:
+        "Built asynchronous FastAPI background workers to process bulk resume uploads concurrently without blocking the main event loop. Vector similarity computations are optimized using vectorized NumPy/SciPy operations, allowing re-ranking of 50+ candidates in under 200ms.",
       impact: [
-        { metric: "30%", label: "Faster ticket resolution" },
-        { metric: "40%", label: "Reduction in workflow time" },
-        { metric: "1000+", label: "Concurrent requests handled" },
-        { metric: "35%", label: "Lower API response latency" }
+        { metric: "90%+", label: "Reduction in Resume Screening Time" },
+        { metric: "768-D", label: "High-Dimensional Vector Embeddings" },
+        { metric: "<200ms", label: "Candidate Re-ranking Latency" },
+        { metric: "3 Formats", label: "PDF, DOCX & TXT Parsing Support" },
       ],
-      challenges: "Designing a scalable RBAC system that could accommodate 10+ department roles with different permissions while keeping query complexity manageable. Solved by implementing a permission-matrix table design with caching.",
-      learnings: "Building for government-scale systems requires extreme attention to auditability, fault tolerance, and zero-downtime deployments. Introduced circuit breakers and retry mechanisms."
-    }
+      github: "https://github.com/engineershree/ai-screening-and-ranking-system",
+      learnings:
+        "Explainability is paramount in AI HR systems. Recruiters need to see the exact semantic overlap and missing requirements rather than a black-box score to make fair hiring decisions.",
+    },
   },
   {
-    id: "civiccare",
-    category: "Platform",
-    name: "Civic Care AI",
-    stack: ["Node.js", "React", "PostgreSQL", "Redis"],
-    description: "A high-performance system for categorizing and tracking municipal issues, heavily utilizing backend optimizations for fast load times.",
+    id: "life-engine",
+    name: "Personalized Life Engine",
+    shortName: "Personalized Life Engine",
+    category: "AI / Full Stack / Productivity",
+    status: "Ongoing",
+    year: "2026",
+    developmentDate: "2026 (Ongoing)",
+    stack: ["React.js", "Node.js", "Express.js", "PostgreSQL", "AI/NLP", "REST APIs", "TailwindCSS"],
+    description:
+      "An intelligent personal productivity and career management platform that connects goals, missions, projects, tasks, habits, learning, and career applications into one interconnected ecosystem.",
     highlights: [
-      "Engineered secure authentication workflows with JWT",
-      "Implemented aggressive caching strategies reducing database load",
-      "Built complex analytical dashboards for city administrators"
+      "Unified personal data management and centralized control hub",
+      "Goal and hierarchical project milestone tracking",
+      "Career application pipeline management and offer tracking",
+      "Habit consistency analytics and daily task execution",
+      "Upcoming: Autonomous AI planning and multi-agent scheduling",
     ],
-    image: "/assets/civic_ai_dashboard.png",
+    image: "/assets/life_engine.svg",
+    github: "https://github.com/engineershree",
+    isFlagship: true,
+    evolvingPlatform: true,
+    completedFeatures: [
+      "Unified personal data management across goals, projects, and careers",
+      "Hierarchical goal, mission, and milestone tracking architecture",
+      "Career application management pipeline (applied, screening, interviews, offers)",
+      "Daily habit rhythm and task completion velocity tracking",
+      "Normalized relational PostgreSQL schema with sub-50ms query indexing",
+    ],
+    upcomingFeatures: [
+      "Intelligent automated task decomposition via generative AI models",
+      "Predictive schedule optimization and workload burnout detection",
+      "Automated multi-agent career application assistant and follow-up reminders",
+      "Cross-platform mobile client companion for real-time offline sync",
+    ],
     caseStudy: {
-      problem: "City administrators lacked real-time visibility into municipal issue distribution, leading to poor resource allocation and delayed response times for citizens.",
-      solution: "Developed Civic Care AI — a data-driven analytics platform with automated issue categorization, heatmaps, and priority queuing for administrators to act decisively.",
+      overview:
+        "A comprehensive personal operating system built to unify fragmented productivity apps. It bridges high-level life missions with day-to-day tactical execution, tracking career applications, habits, projects, and goals in a cohesive data graph.",
+      problem:
+        "Knowledge workers use fragmented, disconnected tools (Notion, Trello, spreadsheets, habit trackers). As a result, daily tasks are frequently disconnected from overarching career milestones, and tracking job applications happens in isolation from active technical projects.",
+      solution:
+        "Engineered an interconnected full-stack platform where every daily task maps upward to an active project, goal, and career objective. Designed with an evolving architecture that distinguishes production-verified modules from upcoming AI automation features.",
       architecture: [
-        "Node.js backend with Express and Redis caching layer",
-        "PostgreSQL for persistent issue storage with optimized queries",
-        "JWT-based secure authentication",
-        "React analytical dashboards with Chart.js visualizations",
-        "Background workers for automated categorization"
+        "Data Model: Relational PostgreSQL schema structuring Missions, Milestones, Tasks, Habits, and Job Applications.",
+        "API Service: Express.js REST API with structured validation, transactional integrity, and session handling.",
+        "Analytics Engine: Heuristic aggregation computing weekly completion velocity, streak resilience, and goal momentum.",
+        "Frontend Interface: React.js SPA featuring interactive timeline trackers, kanban boards, and status visualization.",
+        "AI Extension (Planned): Asynchronous agent worker synthesizing tasks and generating adaptive weekly schedules.",
       ],
+      keyFeatures: [
+        "[Completed] Unified personal data management and command dashboard",
+        "[Completed] Goal and hierarchical project milestone tracking",
+        "[Completed] Career application management pipeline with interview stages",
+        "[Completed] Productivity analytics and daily streak monitoring",
+        "[Upcoming] Intelligent planning recommendations and auto-rescheduling",
+        "[Upcoming] AI-assisted workflow automation and predictive insights",
+      ],
+      techStackDetailed: {
+        frontend: ["React.js", "TailwindCSS", "Framer Motion", "Lucide React"],
+        backend: ["Node.js", "Express.js", "REST APIs"],
+        ai_nlp: ["AI/NLP Heuristics", "Semantic Categorization (Planned)"],
+        database: ["PostgreSQL", "Database Schema Optimization"],
+      },
+      challenges:
+        "Designing a relational data architecture that supports deep parent-child hierarchies (Mission → Goal → Project → Milestone → Task) while maintaining snappy query response times on complex dashboard views.",
+      implementationDetails:
+        "Utilized PostgreSQL foreign key indexing, composite views, and optimized joins to keep dashboard load times under 50ms. Implemented an optimistic UI update model in React to provide instant feedback during rapid task completion.",
       impact: [
-        { metric: "60%", label: "Reduction in DB load via caching" },
-        { metric: "3x", label: "Faster admin decision making" },
-        { metric: "20%", label: "Reduced production bugs via testing" },
-        { metric: "100%", label: "Secure auth with JWT" }
+        { metric: "1 Hub", label: "Unified Productivity & Career System" },
+        { metric: "<50ms", label: "Dashboard Query Retrieval Time" },
+        { metric: "100%", label: "Traceability from Tasks to Goals" },
+        { metric: "Evolving", label: "Actively Developing AI Layer" },
       ],
-      challenges: "Implementing Redis caching with proper cache invalidation strategies when issue states change. Used event-driven invalidation to keep dashboards consistent without over-fetching.",
-      learnings: "Real-time analytics dashboards require careful balance between data freshness and system load. Strategic caching layers are non-negotiable at scale."
-    }
+      github: "https://github.com/engineershree",
+      learnings:
+        "Building an evolving platform requires clear product boundaries: shipping rock-solid core data tracking first before layering on autonomous AI recommendations guarantees a dependable user experience.",
+    },
   },
   {
-    id: "aimentor",
-    category: "EdTech Platform",
-    name: "Personalized AI Mentor",
-    stack: ["Java", "Spring Boot", "React", "OAuth2"],
-    description: "A robust learning management system providing adaptive roadmaps, requiring complex state management and seamless API integrations.",
+    id: "sky-cadastral",
+    name: "Sky Cadastral Land Services",
+    shortName: "Sky Cadastral",
+    category: "Enterprise Software / Geospatial Engineering",
+    status: "Ongoing",
+    year: "2026",
+    developmentDate: "2026 (Ongoing)",
+    stack: ["React.js", "Node.js", "Express.js", "Python", "PyMuPDF", "Shapely", "PDF.js", "GeoJSON", "Three.js"],
+    description:
+      "A cadastral land management platform designed to process land-layout PDFs, extract plot information, validate geometry, and generate interactive 2D and 3D plot visualizations.",
     highlights: [
-      "Designed resilient REST APIs for real-time progress synchronization",
-      "Integrated generative AI APIs with exponential backoff and retry mechanisms",
-      "Built a highly responsive and accessible React frontend"
+      "Vector PDF-based land-layout parsing and coordinate extraction",
+      "Plot boundary geometry extraction and Shapely topological validation",
+      "GeoJSON-based spatial data representation and metadata indexing",
+      "Interactive 2D vector plot visualization canvas with zoom/pan",
+      "Enterprise engineering case study with distinct completed and ongoing modules",
     ],
-    image: "/assets/ai_mentor_platform.png",
+    image: "/assets/sky_cadastral.svg",
+    github: "https://github.com/engineershree",
+    evolvingPlatform: true,
+    completedFeatures: [
+      "PDF-based land-layout vector extraction using PyMuPDF and PDF.js",
+      "Plot boundary and geometry polygon extraction",
+      "Shapely topological verification ensuring non-overlapping closed polygons",
+      "Standardized GeoJSON spatial data export and persistence",
+      "Interactive 2D vector plot visualization and inspection canvas",
+      "Admin workflows for plot verification, reconciliation, and status tracking",
+    ],
+    upcomingFeatures: [
+      "Three.js 3D spatial terrain mesh generation with real-world elevation",
+      "Automated boundary discrepancy reconciliation against government land registry datasets",
+      "Client-facing parcel reservation, payment gateway, and revenue management modules",
+    ],
     caseStudy: {
-      problem: "Students following generic learning paths often lose motivation or miss key concepts because the content isn't adapted to their pace, strengths, or weaknesses.",
-      solution: "Built an AI-powered LMS that generates personalized learning roadmaps, tracks progress in real-time, and adapts content delivery using generative AI recommendations.",
+      overview:
+        "An enterprise geospatial software engineering case study built to automate the digitization of cadastral land survey layouts. The system extracts geometric vectors from complex blueprint PDFs, validates polygon closure, and renders interactive 2D and 3D plot layouts.",
+      problem:
+        "Land survey blueprints and cadastral layouts are traditionally archived as static vector PDFs. Manual inspection of plot boundaries, dimensions, and zoning compliance is painstakingly slow, prone to boundary overlap errors, and inaccessible for real-time customer visualization.",
+      solution:
+        "Engineered a multi-stage geospatial pipeline using Python (PyMuPDF, Shapely) and Node.js. The pipeline parses vector graphics primitives, reconstructs closed parcel polygons, verifies topological validity, converts coordinates to GeoJSON, and renders interactive vector maps.",
       architecture: [
-        "Java Spring Boot backend with clean REST API design",
-        "OAuth2 social login (Google, GitHub)",
-        "Generative AI integration with exponential backoff",
-        "React frontend with context-based global state",
-        "PostgreSQL for progress tracking and analytics"
+        "PDF Ingestion Pipeline: PyMuPDF and PDF.js parsing vector line segments, curves, and survey annotation text.",
+        "Geospatial Validation Engine: Python service utilizing Shapely to validate polygon closure and detect self-intersections.",
+        "Spatial Data Service: Express.js API persisting GeoJSON feature collections, plot attributes, and ownership status.",
+        "Interactive Visualizer: React.js application rendering 2D vector maps and Three.js 3D boundary visualizations.",
+        "Admin Portal: Workflow console for surveying engineers to inspect plot areas, resolve discrepancies, and approve parcels.",
       ],
+      keyFeatures: [
+        "[Completed] PDF-based land-layout vector coordinate processing",
+        "[Completed] Plot boundary and geometry extraction",
+        "[Completed] GeoJSON-based spatial data representation",
+        "[Completed] Plot verification and topological closure validation",
+        "[Completed] Interactive 2D vector visualization with pan/zoom and plot highlighting",
+        "[Completed] Admin-facing workflows for plot inventory and validation",
+        "[Ongoing] Three.js interactive 3D plot and elevation visualization",
+        "[Ongoing] Automated revenue and boundary reconciliation against external registries",
+      ],
+      techStackDetailed: {
+        frontend: ["React.js", "Three.js", "PDF.js", "TailwindCSS"],
+        backend: ["Node.js", "Express.js", "Python"],
+        geospatial: ["PyMuPDF", "Shapely", "GeoJSON"],
+        database: ["PostgreSQL", "Spatial Indexing"],
+      },
+      challenges:
+        "Handling floating-point coordinate precision drift and open polygon gaps in exported CAD blueprints. Developed a topological snapping algorithm with custom epsilon thresholds in Shapely to ensure all line segments cleanly snap to shared vertices.",
+      implementationDetails:
+        "Divided the system into a high-performance Python geometry microservice and a Node.js business logic backend. Extracted coordinates are normalized into normalized unit coordinates and transformed into standardized GeoJSON feature collections.",
       impact: [
-        { metric: "40%", label: "Improvement in course completion" },
-        { metric: "99.9%", label: "API uptime via retry mechanisms" },
-        { metric: "2s", label: "Average AI roadmap generation time" },
-        { metric: "WCAG", label: "Accessible interface standard" }
+        { metric: "100%", label: "Topological Polygon Closure Accuracy" },
+        { metric: "GeoJSON", label: "Open Spatial Data Compatibility" },
+        { metric: "2D & 3D", label: "Multi-Perspective Plot Visualization" },
+        { metric: "Enterprise", label: "Production Engineering Case Study" },
       ],
-      challenges: "Integrating LLM APIs that have rate limits and occasional timeouts into a user-facing feature that must feel instant. Implemented streaming responses and background pre-generation to mask latency.",
-      learnings: "AI API reliability requires defensive programming — fallbacks, timeouts, circuit breakers, and user-friendly loading states are essential for production-grade AI integrations."
-    }
+      github: "https://github.com/engineershree",
+      learnings:
+        "Geospatial engineering requires strict mathematical tolerance handling: vector primitives extracted from PDFs must be rigorously verified for topology before being exposed to rendering engines.",
+    },
   },
   {
-    id: "fitnesstracker",
-    category: "Mobile Application",
-    name: "Fitness Tracker App",
-    stack: ["React Native", "Node.js", "SQLite", "Offline-First"],
-    description: "A cross-platform mobile application featuring an offline-first architecture with robust local data synchronization strategies.",
+    id: "fitness-tracker",
+    name: "Fitness Tracker Application",
+    shortName: "Fitness Tracker",
+    category: "Mobile Development / Backend Engineering",
+    status: "Completed",
+    year: "2025",
+    developmentDate: "2025",
+    stack: ["React Native", "Python", "Flask", "FastAPI", "SQLite", "REST APIs"],
+    description:
+      "A cross-platform fitness tracking application with backend functionality for fitness activities, notifications, user data, and offline-first synchronization.",
     highlights: [
-      "Implemented conflict-free replicated data types for offline sync",
-      "Optimized mobile bundle size and render performance (60fps)",
-      "Designed an extensible backend API for future wearable integrations"
+      "Cross-platform mobile application built with React Native",
+      "Offline-first synchronization with local SQLite storage",
+      "User authentication, profile management, and progress history",
+      "Automated push notification workflows for workout consistency",
+      "High-throughput REST API backend built with Python, Flask, and FastAPI",
     ],
     image: "/assets/fitness_tracker.png",
+    github: "https://github.com/engineershree",
     caseStudy: {
-      problem: "Most fitness apps fail in areas with poor connectivity — workouts can't be logged offline, and data is lost when the connection drops, frustrating users mid-workout.",
-      solution: "Built an offline-first React Native app where all data is written locally first using SQLite, then synced to the Node.js backend using conflict resolution strategies.",
+      overview:
+        "A robust mobile fitness tracking ecosystem engineered for seamless operation in low-connectivity environments. The app captures workouts, tracks progress metrics, schedules reminders, and synchronizes data with a Python backend when connectivity is restored.",
+      problem:
+        "Gyms and outdoor running paths often suffer from poor cellular connectivity. Traditional online-first fitness apps drop user session data or freeze when trying to log sets or track GPS runs offline.",
+      solution:
+        "Built an offline-first architecture using React Native with SQLite for local persistence, combined with background synchronization that detects network status and queues updates to a Python (Flask/FastAPI) backend.",
       architecture: [
-        "React Native for cross-platform iOS & Android",
-        "SQLite local database with sync engine",
-        "Node.js + Express REST API",
-        "Offline-first conflict resolution (last-write-wins + vector clocks)",
-        "Background sync with exponential backoff"
+        "Mobile Client: React Native application optimized for 60fps animations and low memory footprint.",
+        "Local Database: SQLite database with write-ahead logging (WAL) for local-first reads and writes.",
+        "Sync Engine: Background synchronization worker with exponential backoff and conflict resolution.",
+        "Backend APIs: RESTful endpoints powered by FastAPI and Flask for authentication, data aggregation, and notifications.",
+        "Notification System: Scheduled local notifications and remote alerts to drive workout adherence.",
       ],
+      keyFeatures: [
+        "Fitness activity and workout logging",
+        "User authentication and profile management",
+        "Workout history, personal bests, and progress tracking",
+        "Notification workflows for routines and hydration",
+        "Offline-first synchronization with zero data loss",
+        "Backend API integration with fast query throughput",
+      ],
+      techStackDetailed: {
+        frontend: ["React Native", "TypeScript", "React Navigation"],
+        backend: ["Python", "Flask", "FastAPI", "REST APIs"],
+        database: ["SQLite (Mobile)", "PostgreSQL (Backend)"],
+        tools: ["Postman", "Git"],
+      },
+      challenges:
+        "Resolving concurrent data sync conflicts when users logged workouts across multiple devices while offline. Implemented a timestamped version-vector strategy with server reconciliation.",
+      implementationDetails:
+        "Engineered the mobile client with optimized React Native re-rendering patterns to maintain smooth 60fps list scrolling during active workout timers. Leveraged SQLite indexes on timestamp and user ID columns.",
       impact: [
-        { metric: "60fps", label: "Smooth animation performance" },
-        { metric: "100%", label: "Offline functionality" },
-        { metric: "40%", label: "Reduced mobile bundle size" },
-        { metric: "0", label: "Data loss on connectivity drop" }
+        { metric: "60fps", label: "Smooth Animation & UI Performance" },
+        { metric: "100%", label: "Offline Workout Logging Reliability" },
+        { metric: "0", label: "Data Loss Incidents During Disconnects" },
+        { metric: "Mobile", label: "Cross-Platform iOS & Android" },
       ],
-      challenges: "Handling sync conflicts when the same workout was edited on two devices while offline. Implemented a timestamped last-write-wins strategy with UI prompts for manual resolution on major conflicts.",
-      learnings: "Offline-first is an architecture decision that must be made at day zero. Retrofitting offline support into an online-first app is exponentially more complex."
-    }
+      github: "https://github.com/engineershree",
+      learnings:
+        "Offline-first is an architectural commitment that must guide every state management decision: treating the remote server as a sync target rather than a real-time dependency creates a vastly superior user experience.",
+    },
+  },
+  {
+    id: "civiccare-ai",
+    name: "CivicCare AI",
+    shortName: "CivicCare AI",
+    category: "Full Stack / Civic Technology",
+    status: "Completed",
+    year: "2024 – 2025",
+    developmentDate: "2024 – 2025",
+    stack: ["React.js", "Node.js", "PostgreSQL", "REST APIs", "JWT", "RBAC"],
+    description:
+      "A civic issue management platform designed to streamline complaint submission, tracking, and management through a structured application and backend system.",
+    highlights: [
+      "Structured complaint submission and lifecycle tracking workflows",
+      "Normalized PostgreSQL schema with optimized relational indexing",
+      "Role-Based Access Control (RBAC) for citizens, field officers, and administrators",
+      "Secure authentication workflows utilizing JWT tokens",
+      "High-reliability REST API development with complete input validation",
+    ],
+    image: "/assets/civic_ai_dashboard.png",
+    github: "https://github.com/engineershree",
+    caseStudy: {
+      overview:
+        "A municipal issue management platform built to bridge the gap between citizens and local government bodies. Citizens submit categorized grievances, while administrative departments manage verification, assignment, and resolution through role-governed workflows.",
+      problem:
+        "Citizens lack visibility into municipal grievance resolution, while municipal administrators struggle with unstructured complaint channels, redundant reports, and lack of accountability across departments.",
+      solution:
+        "Developed a secure full-stack platform featuring structured issue submission, role-based departmental routing, normalized database architecture, and real-time status tracking for end-to-end transparency.",
+      architecture: [
+        "Backend Service: Node.js and Express RESTful API with middleware validation and centralized error handling.",
+        "Security: JWT-based stateless authentication coupled with Role-Based Access Control (RBAC).",
+        "Database Architecture: 3NF normalized PostgreSQL schema with foreign keys, composite indexes, and status enum constraints.",
+        "Frontend Application: React.js portal with intuitive complaint registration forms and administrative management tables.",
+        "Workflow Engine: State-machine based grievance status transitions (Submitted → Assigned → In-Progress → Resolved → Verified).",
+      ],
+      keyFeatures: [
+        "Citizen complaint submission with categorization and media attachment",
+        "End-to-end lifecycle status tracking with transparent audit trails",
+        "Role-Based Access Control (Citizens, Department Heads, Field Agents)",
+        "Administrative dashboard for ticket assignment and priority triage",
+        "Normalized PostgreSQL schema ensuring referential integrity",
+        "REST API endpoints with JWT authentication and rate limiting",
+      ],
+      techStackDetailed: {
+        frontend: ["React.js", "TailwindCSS", "Lucide React"],
+        backend: ["Node.js", "Express.js", "REST APIs", "JWT", "RBAC"],
+        database: ["PostgreSQL", "Relational Schema Normalization"],
+        tools: ["Postman", "Git"],
+      },
+      challenges:
+        "Designing a role-based access matrix that cleanly separates departmental boundaries so that staff can only review and act upon grievances assigned to their specific civic department.",
+      implementationDetails:
+        "Constructed a granular RBAC middleware verifying both user identity and department tenancy before executing database transactions. Applied PostgreSQL indexing on status, department ID, and submission timestamp.",
+      impact: [
+        { metric: "100%", label: "Role-Based Tenancy & Authorization" },
+        { metric: "35%", label: "Faster Ticket Triage & Assignment" },
+        { metric: "3NF", label: "Normalized Relational Database" },
+        { metric: "Zero", label: "Unauthorized Department Cross-Access" },
+      ],
+      github: "https://github.com/engineershree",
+      learnings:
+        "Public sector and enterprise platforms require strict auditability: maintaining immutable status logs for every ticket transition is essential for building citizen trust.",
+    },
+  },
+  {
+    id: "ai-mentor",
+    name: "Personalized AI Mentor Platform",
+    shortName: "AI Mentor",
+    category: "AI / Education Technology",
+    status: "Completed",
+    year: "2024",
+    developmentDate: "2024",
+    stack: ["React.js", "Node.js", "REST APIs", "PostgreSQL", "OAuth2"],
+    description:
+      "An AI-assisted learning platform designed to personalize learning workflows through user progress tracking, recommendation logic, and structured learning plans.",
+    highlights: [
+      "Personalized learning roadmaps adapted to user pace and background",
+      "Dynamic progress tracking and milestone completion verification",
+      "Recommendation logic suggesting tailored follow-up modules",
+      "Robust Node.js and REST API backend architecture",
+      "Accessible React.js frontend interface with responsive design",
+    ],
+    image: "/assets/ai_mentor_platform.png",
+    github: "https://github.com/engineershree",
+    caseStudy: {
+      overview:
+        "An AI-assisted education technology platform designed to deliver personalized curriculum roadmaps. The system monitors student progress, evaluates comprehension checkpoints, and dynamically adjusts module recommendations.",
+      problem:
+        "Standardized online learning platforms force students into one-size-fits-all curricula, failing to adapt when learners struggle with prerequisites or accelerate through familiar subjects.",
+      solution:
+        "Built a structured learning platform with Node.js and React that evaluates learner progress, computes personalized study plans, and serves targeted learning materials through RESTful APIs.",
+      architecture: [
+        "Backend API: Node.js and Express server providing modular REST endpoints for courses, modules, and user progress.",
+        "Adaptive Engine: Algorithmic recommendation service dynamically recalculating topic sequences based on quiz scores.",
+        "Authentication: Secure user session management and OAuth2 integration.",
+        "Frontend Portal: Component-driven React.js application with interactive roadmap visualization and progress analytics.",
+        "Database: PostgreSQL tracking learner profiles, completion timestamps, and score metrics.",
+      ],
+      keyFeatures: [
+        "Personalized learning workflows tailored to individual pace",
+        "Progress-based recommendation logic for upcoming study modules",
+        "Learning activity and quiz score management",
+        "Backend REST API development with structured request validation",
+        "Interactive course milestone tracking with visual progress indicators",
+      ],
+      techStackDetailed: {
+        frontend: ["React.js", "TailwindCSS", "Lucide React"],
+        backend: ["Node.js", "Express.js", "REST APIs"],
+        database: ["PostgreSQL"],
+        tools: ["Postman", "Git"],
+      },
+      challenges:
+        "Creating dynamic learning roadmap paths that gracefully recalculate prerequisites when a student skips or fails a specific competency check without corrupting course progress trees.",
+      implementationDetails:
+        "Represented curriculum roadmaps as directed acyclic graphs (DAGs) in PostgreSQL. Used clean RESTful endpoints to query next-recommended modules with sub-50ms latency.",
+      impact: [
+        { metric: "100%", label: "Adaptive Curriculum Path Generation" },
+        { metric: "<50ms", label: "Progress Checkpoint API Latency" },
+        { metric: "DAG", label: "Curriculum Graph Data Modeling" },
+        { metric: "WCAG", label: "Accessible Student UI Standards" },
+      ],
+      github: "https://github.com/engineershree",
+      learnings:
+        "Personalization is most effective when grounded in clear visual progress feedback: showing students where they stand on their roadmap significantly increases completion rates.",
+    },
   },
   {
     id: "mcm",
-    category: "Web3 Concept",
     name: "My Cinematic Multiverse",
-    stack: ["React", "Node.js", "Web3.js", "Smart Contracts"],
-    description: "A decentralized storytelling platform exploring blockchain integration and secure digital asset ownership architectures.",
+    shortName: "Cinematic Multiverse",
+    category: "Web3 & Creative Tech",
+    status: "Experimental",
+    year: "2024",
+    developmentDate: "2024",
+    stack: ["React", "Node.js", "Web3.js", "Smart Contracts", "IPFS"],
+    description:
+      "A decentralized storytelling platform exploring blockchain integration and secure digital asset ownership architectures.",
     highlights: [
-      "Integrated secure Web3 wallet authentication",
-      "Architected a scalable backend to sync on-chain data with traditional databases",
-      "Built complex UI flows for minting and trading digital assets"
+      "Decentralized digital narrative asset ownership",
+      "Web3 wallet integration and authentication",
+      "Hybrid on-chain and off-chain data indexing architecture",
     ],
     image: "/assets/cinematic_multiverse.png",
+    github: "https://github.com/engineershree",
     caseStudy: {
-      problem: "Content creators and storytellers lack ownership of their narratives in centralized platforms — stories can be deleted, monetization is controlled by platforms, and there's no true provenance.",
-      solution: "Built a Web3 storytelling platform where narratives are tokenized as NFTs on-chain, giving creators verifiable ownership, transparent royalty distribution, and cross-platform portability.",
+      overview:
+        "A decentralized storytelling exploration platform investigating on-chain creator provenance, digital collectible mechanics, and community-driven world building.",
+      problem:
+        "Creative storytellers on traditional social media do not own their IP, and platform algorithms control discovery and monetization.",
+      solution:
+        "Architected an experimental Web3 application with React and Node.js that tokenizes narrative elements and stores metadata immutably via IPFS.",
       architecture: [
-        "React frontend with Web3.js wallet integration",
-        "Solidity smart contracts for NFT minting and royalties",
-        "Node.js backend to sync on-chain events with DB",
-        "IPFS for decentralized story content storage",
-        "PostgreSQL for user profiles and search indexing"
+        "React frontend connecting to Web3 provider wallets",
+        "Smart contracts governing ownership and digital royalties",
+        "Node.js syncing on-chain events into relational database",
+        "IPFS for decentralized asset storage",
       ],
+      keyFeatures: [
+        "Web3 wallet authentication",
+        "Story tokenization and royalty distribution",
+        "Decentralized content storage on IPFS",
+      ],
+      challenges:
+        "Syncing asynchronous blockchain event states with traditional database caches during high network congestion.",
+      implementationDetails:
+        "Built event listener daemons with confirmation thresholds to maintain consistent UI states.",
       impact: [
-        { metric: "100%", label: "Creator ownership via blockchain" },
-        { metric: "0%", label: "Platform censorship risk" },
-        { metric: "Auto", label: "Royalty distribution via smart contracts" },
-        { metric: "Web3", label: "Wallet-based authentication" }
+        { metric: "Web3", label: "Decentralized Identity" },
+        { metric: "100%", label: "Verifiable Story Ownership" },
       ],
-      challenges: "Synchronizing blockchain events (mints, transfers) with a traditional database in near-real-time while handling chain reorganizations. Used event listeners with confirmation thresholds.",
-      learnings: "Web3 UX is the biggest barrier to adoption. Building seamless wallet connection flows and abstracting blockchain complexity from the user experience is as important as the smart contract logic."
-    }
+      github: "https://github.com/engineershree",
+      learnings:
+        "Web3 user experience requires deep abstraction: users care about creation and ownership, not raw transaction hashes.",
+    },
   },
-  {
-    id: "githubdash",
-    category: "Developer Tool",
-    name: "GitHub Dashboard",
-    stack: ["React", "TypeScript", "GraphQL", "Data Vis"],
-    description: "A performance-focused developer analytics tool that aggregates and visualizes massive amounts of repository data via GitHub's API.",
-    highlights: [
-      "Optimized GraphQL queries to minimize network payloads",
-      "Implemented complex data visualizations with Canvas/SVG",
-      "Built custom React hooks for efficient data fetching and caching"
-    ],
-    image: "/assets/civic_ai_dashboard.png",
-    caseStudy: {
-      problem: "GitHub's native interface makes it hard to get a holistic view of your contribution patterns, code health across repos, or team velocity — developers lack actionable insights from their own data.",
-      solution: "Built a TypeScript + GraphQL analytics dashboard that aggregates repository metrics, contribution heatmaps, language breakdowns, and pull request velocity into a single, beautiful UI.",
-      architecture: [
-        "React + TypeScript for type-safe frontend",
-        "GraphQL queries to GitHub API with field selection",
-        "Custom hooks for data fetching, caching, and pagination",
-        "Canvas/SVG for contribution graphs and heatmaps",
-        "Local cache with stale-while-revalidate strategy"
-      ],
-      impact: [
-        { metric: "70%", label: "Smaller network payloads via GraphQL" },
-        { metric: "<1s", label: "Dashboard load time" },
-        { metric: "10+", label: "Visualization types" },
-        { metric: "0", label: "TypeScript runtime errors" }
-      ],
-      challenges: "GitHub's GraphQL API has complex rate limiting. Implemented query cost estimation and automatic request batching to stay within limits while still loading all the user's data.",
-      learnings: "GraphQL's power lies in precise data fetching, but over-engineering queries can lead to complex nested resolvers. Simple, focused queries with smart client-side aggregation proved more maintainable."
-    }
-  },
-  {
-    id: "infinitynature",
-    category: "Digital Platform",
-    name: "Infinity Click of Nature's",
-    stack: ["React", "Vite", "TailwindCSS"],
-    description: "A highly optimized frontend platform demonstrating advanced CSS architectures, responsive design, and superior Web Vitals scores.",
-    highlights: [
-      "Achieved 95+ Lighthouse scores across all metrics",
-      "Implemented advanced lazy loading and image optimization",
-      "Built a fully accessible, WCAG-compliant interface"
-    ],
-    image: "/assets/ai_mentor_platform.png",
-    caseStudy: {
-      problem: "Nature photography platforms often have beautiful imagery but terrible performance — massive image sizes, blocking scripts, and poor Core Web Vitals scores drive users away before they see the content.",
-      solution: "Built a performance-first nature photography platform with Vite + React, achieving 95+ Lighthouse scores through advanced lazy loading, next-gen image formats, and CSS architecture best practices.",
-      architecture: [
-        "Vite for ultra-fast builds and HMR",
-        "React with lazy loading and Suspense boundaries",
-        "TailwindCSS with PurgeCSS for minimal CSS bundle",
-        "WebP/AVIF image optimization pipeline",
-        "Service Worker for offline caching"
-      ],
-      impact: [
-        { metric: "95+", label: "Lighthouse score (all metrics)" },
-        { metric: "< 1.2s", label: "First Contentful Paint" },
-        { metric: "WCAG 2.1", label: "Full accessibility compliance" },
-        { metric: "60%", label: "Image size reduction via WebP" }
-      ],
-      challenges: "Balancing high-resolution nature photography with performance requirements. Implemented responsive image serving with srcset and sizes attributes, plus blur-up placeholders for perceived performance.",
-      learnings: "Performance is a feature. A beautiful design that loads slowly will always underperform a simpler, faster design. Web Vitals are now a ranking signal and a UX metric."
-    }
-  },
-  {
-    id: "pharma",
-    category: "Healthcare Platform",
-    name: "Pharma Website",
-    stack: ["React", "Node.js", "PostgreSQL", "SEO"],
-    description: "A scalable B2B healthcare platform focusing on extreme reliability, fast page loads, and stringent data security practices.",
-    highlights: [
-      "Engineered SEO-friendly Server-Side Rendering patterns",
-      "Implemented strict data validation and sanitization pipelines",
-      "Designed a highly maintainable component library"
-    ],
-    image: "/assets/ai_mentor_platform.png",
-    caseStudy: {
-      problem: "Pharmaceutical B2B companies rely on their web presence for lead generation but struggle with poor SEO, slow load times, and outdated designs that don't inspire confidence in potential partners.",
-      solution: "Built a production-grade B2B pharma platform with SSR for SEO, strict data validation, comprehensive component library, and HIPAA-conscious data handling practices.",
-      architecture: [
-        "React with SSR patterns for SEO optimization",
-        "Node.js + Express backend with validation middleware",
-        "PostgreSQL with row-level security",
-        "Custom reusable component library",
-        "Automated sitemap and structured data injection"
-      ],
-      impact: [
-        { metric: "Top 3", label: "Organic search ranking improvement" },
-        { metric: "99.9%", label: "Platform uptime SLA" },
-        { metric: "0", label: "Data validation failures in production" },
-        { metric: "40%", label: "Faster feature delivery via component library" }
-      ],
-      challenges: "Healthcare data requires stringent validation at every API boundary. Designed a middleware-based validation pipeline with Zod schemas that catches malformed data before it reaches the database.",
-      learnings: "In healthcare tech, trust is the product. Every security decision, every validation rule, and every uptime investment directly translates to customer confidence and regulatory compliance."
-    }
-  }
-] as const;
+];
 
 export const LEADERSHIP = {
   role: "Technical Head",
   org: "CESA — Computer Engineering Students' Association",
   period: "Past",
   points: [
-    "Orchestrated large-scale technical workshops and knowledge-sharing sessions.",
-    "Mentored junior developers and students in modern web technologies and engineering practices.",
+    "Orchestrated large-scale technical workshops and knowledge-sharing sessions for 200+ engineering students.",
+    "Mentored junior developers and students in modern web technologies, Git, and software engineering practices.",
     "Organized competitive coding events, hackathons, and community-building initiatives.",
-    "Demonstrated strong team leadership and fostered a culture of collaborative innovation."
+    "Demonstrated strong team leadership and fostered a culture of collaborative innovation and continuous learning.",
   ],
 } as const;
 
 export const FUTURE_VISION = [
   {
     title: "AI Products",
-    description: "Building autonomous systems that augment human capabilities and solve complex analytical problems."
+    description:
+      "Building practical, intelligent software products that combine robust backend architectures with modern NLP, semantic search, and autonomous agent workflows.",
   },
   {
     title: "Civic Technology",
-    description: "Creating transparent, efficient ecosystems that bridge the gap between citizens and authorities."
+    description:
+      "Creating transparent, accountable digital systems that bridge the gap between citizens, enterprise stakeholders, and municipal authorities.",
   },
   {
     title: "Education Technology",
-    description: "Democratizing learning through highly personalized, AI-driven mentorship platforms."
+    description:
+      "Democratizing technical knowledge through adaptive, AI-driven mentorship workflows and personalized learning pathways.",
   },
   {
-    title: "Startup Ecosystem",
-    description: "Scaling innovative concepts into robust, production-ready tech companies."
-  }
+    title: "Startup Engineering",
+    description:
+      "Scaling innovative, practical concepts into production-grade, highly scalable software architectures and enduring technical businesses.",
+  },
 ];
 
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
-  { label: "Expertise", href: "#stack" },
   { label: "Experience", href: "#experience" },
-  { label: "Showcase", href: "#showcases" },
+  { label: "Projects", href: "#projects" },
+  { label: "Expertise", href: "#stack" },
   { label: "Resume", href: "#resume" },
-  { label: "Vision", href: "#vision" },
+  { label: "Leadership", href: "#leadership" },
   { label: "Contact", href: "#contact" },
 ] as const;

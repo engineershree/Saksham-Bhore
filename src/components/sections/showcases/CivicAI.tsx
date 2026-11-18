@@ -10,7 +10,7 @@ interface CivicAIProps {
 }
 
 const CivicAI: React.FC<CivicAIProps> = ({ onCaseStudy }) => {
-  const project = PROJECTS.find(p => p.id === 'civicai');
+  const project = PROJECTS.find(p => p.id === 'civiccare-ai' || p.id === 'civicai');
   if (!project) return null;
 
   return (

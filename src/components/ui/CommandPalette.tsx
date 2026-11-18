@@ -35,11 +35,11 @@ const CommandPalette: React.FC = () => {
 
   const commands = [
     { id: 'about', label: 'Go to About section', icon: <User size={16} />, action: () => navigateTo('about') },
-    { id: 'experience', label: 'Go to Experience', icon: <Briefcase size={16} />, action: () => navigateTo('experience') },
-    { id: 'stack', label: 'View Tech Stack', icon: <Code2 size={16} />, action: () => navigateTo('stack') },
-    { id: 'showcases', label: 'View Projects', icon: <Layers size={16} />, action: () => navigateTo('showcases') },
+    { id: 'experience', label: 'Go to Professional Experience', icon: <Briefcase size={16} />, action: () => navigateTo('experience') },
+    { id: 'projects', label: 'View Projects Timeline & Grid', icon: <Layers size={16} />, action: () => navigateTo('projects') },
+    { id: 'stack', label: 'View Technical Arsenal & Stack', icon: <Code2 size={16} />, action: () => navigateTo('stack') },
+    { id: 'resume', label: 'Download Specialized Resumes', icon: <Download size={16} />, action: () => navigateTo('resume') },
     { id: 'copy-email', label: 'Copy Email Address', icon: <Mail size={16} />, action: copyEmail },
-    { id: 'resume', label: 'Download Resume', icon: <Download size={16} />, action: () => { setIsOpen(false); window.open(PROFILE.resumePath, '_blank'); } },
   ];
 
   const filteredCommands = commands.filter(c => c.label.toLowerCase().includes(query.toLowerCase()));
